@@ -5,7 +5,6 @@ import io.github.stream29.proxy.globalJson
 import io.github.stream29.proxy.relocate.com.aallam.openai.api.chat.ChatCompletionChunk
 import io.github.stream29.proxy.relocate.com.aallam.openai.api.chat.ChatCompletionRequest
 import io.ktor.client.request.*
-import io.ktor.http.*
 import io.ktor.utils.io.*
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.flow.Flow
@@ -15,19 +14,11 @@ import kotlinx.coroutines.isActive
 
 suspend fun createStreamingChatCompletion(
     baseUrl: String,
-    apiKey: String,
-    request: ChatCompletionRequest
+    request: ChatCompletionRequest,
+    buildHttpRequest: HttpRequestBuilder.(ChatCompletionRequest) -> Unit,
 ): Flow<ChatCompletionChunk> {
     val statement = globalClient.preparePost(baseUrl) {
-        url { appendPathSegments("chat", "completions") }
-        setBody(request)
-        contentType(ContentType.Application.Json)
-        accept(ContentType.Text.EventStream)
-        headers {
-            append(HttpHeaders.CacheControl, "no-cache")
-            append(HttpHeaders.Connection, "keep-alive")
-            append(HttpHeaders.Authorization, "Bearer $apiKey")
-        }
+        buildHttpRequest(request)
     }
     val channel = runCatching { statement.body<ByteReadChannel>() }
         .getOrElse { return flow { throw it } }

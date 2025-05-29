@@ -9,10 +9,16 @@ import io.github.stream29.proxy.relocate.com.aallam.openai.api.chat.ChatMessage
 import io.github.stream29.proxy.relocate.com.aallam.openai.api.core.Role
 import io.github.stream29.proxy.relocate.com.aallam.openai.api.model.ModelId
 import io.github.stream29.proxy.server.*
+import io.ktor.client.request.*
+import io.ktor.http.ContentType
+import io.ktor.http.HttpHeaders
+import io.ktor.http.appendPathSegments
+import io.ktor.http.contentType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -23,14 +29,29 @@ data class OpenAiConfig(
     val apiKey: String,
     val modelList: List<String>,
     val extraRequest: (ChatCompletionRequest) -> ChatCompletionRequest = { it },
+    val buildHttpRequest: (@Contextual HttpRequestBuilder).(ChatCompletionRequest) -> Unit = {
+        url { appendPathSegments("chat", "completions") }
+        setBody(it)
+        contentType(ContentType.Application.Json)
+        accept(ContentType.Text.EventStream)
+        headers {
+            append(HttpHeaders.CacheControl, "no-cache")
+            append(HttpHeaders.Connection, "keep-alive")
+            append(HttpHeaders.Authorization, "Bearer $apiKey")
+        }
+    },
 ) : ApiProvider {
     override suspend fun getModelNameList(): List<String> = modelList
     override suspend fun generateLStream(request: LChatCompletionRequest): Flow<LChatCompletionResponseChunk> {
-        return chatCompletionsRecording(extraRequest(request.asOpenAiRequest())).map { it.asLChatCompletionResponseChunk() }
+        return chatCompletionsRecording(
+            extraRequest(request.asOpenAiRequest())
+        ).map { it.asLChatCompletionResponseChunk() }
     }
 
     override suspend fun generateOStream(request: OChatRequest): Flow<OChatResponseChunk> {
-        return chatCompletionsRecording(extraRequest(request.asOpenAiRequest())).map { it.asOChatResponseChunk() }
+        return chatCompletionsRecording(
+            extraRequest(request.asOpenAiRequest())
+        ).map { it.asOChatResponseChunk() }
     }
 
     override fun close() {}
@@ -43,8 +64,8 @@ private suspend fun OpenAiConfig.chatCompletionsRecording(
     recorder.onRequest(request.encodeYaml())
     return createStreamingChatCompletion(
         baseUrl = baseUrl,
-        apiKey = apiKey,
-        request = request
+        request = request,
+        buildHttpRequest = buildHttpRequest
     ).onEach { chunk ->
         chunk.choices.firstOrNull()?.delta?.run {
             content?.let { recorder.onPartialOutput(it) }
