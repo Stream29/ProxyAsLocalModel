@@ -102,7 +102,10 @@ data class AzureOpenAiConfig(
     apiKey = apiKey,
     modelList = listOf(deploymentId),
     buildHttpRequest = {
-        url { appendPathSegments("openai", "deployments", deploymentId, "chat", "completions") }
+        url {
+            appendPathSegments("openai", "deployments", deploymentId, "chat", "completions")
+            parameter("api-version", apiVersion)
+        }
         setBody(it)
         contentType(ContentType.Application.Json)
         accept(ContentType.Text.EventStream)
