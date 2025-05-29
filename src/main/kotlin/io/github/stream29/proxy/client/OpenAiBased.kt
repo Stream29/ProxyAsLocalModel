@@ -1,7 +1,7 @@
 package io.github.stream29.proxy.client
 
-import io.github.stream29.proxy.server.*
-import kotlinx.coroutines.flow.Flow
+import io.ktor.client.request.*
+import io.ktor.http.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -87,4 +87,29 @@ data class OpenRouterConfig(
     baseUrl = "https://openrouter.ai/api/v1",
     apiKey = apiKey,
     modelList = modelList
+)
+
+@Suppress("unused")
+@Serializable
+@SerialName("AzureOpenAI")
+data class AzureOpenAiConfig(
+    val endPoint: String,
+    val apiKey: String,
+    val apiVersion: String = "2024-02-01",
+    val deploymentId: String,
+) : ApiProvider by OpenAiConfig(
+    baseUrl = endPoint,
+    apiKey = apiKey,
+    modelList = listOf(deploymentId),
+    buildHttpRequest = {
+        url { appendPathSegments("openai", "deployments", deploymentId, "chat", "completions") }
+        setBody(it)
+        contentType(ContentType.Application.Json)
+        accept(ContentType.Text.EventStream)
+        headers {
+            append(HttpHeaders.CacheControl, "no-cache")
+            append(HttpHeaders.Connection, "keep-alive")
+            append("api-key", apiKey)
+        }
+    }
 )
