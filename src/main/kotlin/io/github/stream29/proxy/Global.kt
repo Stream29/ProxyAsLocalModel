@@ -56,7 +56,7 @@ val unused = {
         helpLogger.info("A default config file is created at ${configFile.absolutePath} with schema annotation.")
         configFile.writeText(
             """
-# ${'$'}schema: https://github.com/Stream29/ProxyAsLocalModel/raw/master/config_v4.schema.json
+# ${'$'}schema: https://github.com/Stream29/ProxyAsLocalModel/raw/master/config_v5.schema.json
 lmStudio:
   port: 1234
 ollama:
