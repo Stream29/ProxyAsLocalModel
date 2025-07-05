@@ -39,6 +39,7 @@ val globalJson = Json {
 
 val globalYaml = Yaml(
     configuration = YamlConfiguration(
+        anchorsAndAliases = AnchorsAndAliases.Permitted(100u),
         polymorphismStyle = PolymorphismStyle.Property,
         strictMode = false,
         singleLineStringStyle = SingleLineStringStyle.PlainExceptAmbiguous,
