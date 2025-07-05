@@ -1,0 +1,609 @@
+{
+    "type": "object",
+    "properties": {
+        "lmStudio": {
+            "type": "object",
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                },
+                "host": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "ollama": {
+            "type": "object",
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                },
+                "host": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "client": {
+            "type": "object",
+            "properties": {
+                "socketTimeout": {
+                    "type": "integer"
+                },
+                "connectTimeout": {
+                    "type": "integer"
+                },
+                "requestTimeout": {
+                    "type": "integer"
+                },
+                "retry": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                },
+                "delayBeforeRetry": {
+                    "type": "integer"
+                }
+            }
+        },
+        "apiProviders": {
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "#/$defs/ApiProvider"
+            }
+        }
+    },
+    "$defs": {
+        "ApiProvider": {
+            "anyOf": [
+                {
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "apiKey": {
+                                    "type": "string"
+                                },
+                                "modelList": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "temperature": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "extraParameters": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "extraBody": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "name"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "apiKey",
+                                "modelList"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "Claude"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "type"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "apiKey": {
+                                    "type": "string"
+                                },
+                                "modelList": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "temperature": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "extraParameters": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "extraBody": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "name"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "apiKey"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "DashScope"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "type"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "apiKey": {
+                                    "type": "string"
+                                },
+                                "modelList": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "temperature": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "extraParameters": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "extraBody": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "name"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "apiKey"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "DeepSeek"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "type"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "apiKey": {
+                                    "type": "string"
+                                },
+                                "modelList": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "temperature": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "extraParameters": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "extraBody": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "name"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "apiKey",
+                                "modelList"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "Gemini"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "type"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "apiKey": {
+                                    "type": "string"
+                                },
+                                "modelList": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "temperature": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "extraParameters": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "extraBody": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "name"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "apiKey"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "Mistral"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "type"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "baseUrl": {
+                                    "type": "string"
+                                },
+                                "apiKey": {
+                                    "type": "string"
+                                },
+                                "modelList": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "temperature": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "extraParameters": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "extraBody": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "name"
+                                        ]
+                                    }
+                                },
+                                "extraRequest": {
+                                    "anyOf": []
+                                }
+                            },
+                            "required": [
+                                "baseUrl",
+                                "apiKey",
+                                "modelList"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "OpenAi"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "type"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "apiKey": {
+                                    "type": "string"
+                                },
+                                "modelList": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "temperature": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "extraParameters": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "extraBody": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "name"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "apiKey",
+                                "modelList"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "OpenRouter"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "type"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "apiKey": {
+                                    "type": "string"
+                                },
+                                "modelList": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "temperature": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "extraParameters": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "extraBody": {
+                                                "type": [
+                                                    "object",
+                                                    "null"
+                                                ],
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "name"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "apiKey",
+                                "modelList"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "SiliconFlow"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "type"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
