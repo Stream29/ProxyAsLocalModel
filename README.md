@@ -1,3 +1,34 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="right">
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=en">English</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=zh-CN">简体中文</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=zh-TW">繁體中文</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=ja">日本語</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=ko">한국어</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=hi">हिन्दी</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=th">ไทย</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=fr">Français</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=de">Deutsch</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=es">Español</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=it">Itapano</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=ru">Русский</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=pt">Português</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=nl">Nederlands</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=pl">Polski</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=ar">العربية</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=fa">فارسی</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=tr">Türkçe</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=vi">Tiếng Việt</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=Stream29&project=ProxyAsLocalModel&lang=id">Bahasa Indonesia</a></p>
+      </div>
+    </div>
+  </details>
+</div>
+
 # ProxyAsLocalModel
 
 Proxy remote LLM API as Local model. Especially works for using custom LLM in JetBrains AI Assistant.
