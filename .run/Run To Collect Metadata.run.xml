@@ -3,7 +3,7 @@
     <option name="ALTERNATIVE_JRE_PATH" value="graalvm-ce-21" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="io.github.stream29.proxy.MainKt" />
-    <module name="OpenAI2LmStudioProxy.main" />
+    <module name="ProxyAsLocalModel.main" />
     <option name="VM_PARAMETERS" value="-agentlib:native-image-agent=config-output-dir=src\main\resources\META-INF\native-image" />
     <extension name="coverage">
       <pattern>
@@ -19,7 +19,7 @@
     <option name="programParameters" value="" />
     <option name="shortenCommandLine" />
     <option name="vmParameters" value="-agentlib:native-image-agent=config-output-dir=src\main\resources\META-INF\native-image" />
-    <option name="workingDirectory" value="E:\ACodeSpace\local\OpenAI2LmStudioProxy\OpenAI2LmStudioProxy" />
+    <option name="workingDirectory" value="E:\ACodeSpace\push\ProxyAsLocalModel" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
