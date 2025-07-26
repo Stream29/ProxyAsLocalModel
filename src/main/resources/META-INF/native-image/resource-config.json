@@ -229,6 +229,18 @@
   }, {
     "pattern":"\\Qio/github/stream29/proxy/client\\E"
   }, {
+    "pattern":"\\Qio/github/stream29/proxy/relocate/com/aallam/openai/api/chat\\E"
+  }, {
+    "pattern":"\\Qio/github/stream29/proxy/relocate/com/aallam/openai/api\\E"
+  }, {
+    "pattern":"\\Qio/github/stream29/proxy/relocate/com/aallam/openai\\E"
+  }, {
+    "pattern":"\\Qio/github/stream29/proxy/relocate/com/aallam\\E"
+  }, {
+    "pattern":"\\Qio/github/stream29/proxy/relocate/com\\E"
+  }, {
+    "pattern":"\\Qio/github/stream29/proxy/relocate\\E"
+  }, {
     "pattern":"\\Qio/github/stream29/proxy/server\\E"
   }, {
     "pattern":"\\Qio/github/stream29/proxy\\E"
@@ -263,6 +275,10 @@
   }, {
     "pattern":"\\Qio/ktor/events\\E"
   }, {
+    "pattern":"\\Qio/ktor/http/cio/internals\\E"
+  }, {
+    "pattern":"\\Qio/ktor/http/cio\\E"
+  }, {
     "pattern":"\\Qio/ktor/http/content\\E"
   }, {
     "pattern":"\\Qio/ktor/http\\E"
@@ -277,6 +293,8 @@
   }, {
     "pattern":"\\Qio/ktor/network/tls\\E"
   }, {
+    "pattern":"\\Qio/ktor/network/util\\E"
+  }, {
     "pattern":"\\Qio/ktor/network\\E"
   }, {
     "pattern":"\\Qio/ktor/serialization/kotlinx/json\\E"
@@ -284,6 +302,8 @@
     "pattern":"\\Qio/ktor/serialization/kotlinx\\E"
   }, {
     "pattern":"\\Qio/ktor/serialization\\E"
+  }, {
+    "pattern":"\\Qio/ktor/server/application/debug\\E"
   }, {
     "pattern":"\\Qio/ktor/server/application/hooks\\E"
   }, {
@@ -329,6 +349,10 @@
   }, {
     "pattern":"\\Qio/ktor/util/date\\E"
   }, {
+    "pattern":"\\Qio/ktor/util/debug/plugins\\E"
+  }, {
+    "pattern":"\\Qio/ktor/util/debug\\E"
+  }, {
     "pattern":"\\Qio/ktor/util/internal\\E"
   }, {
     "pattern":"\\Qio/ktor/util/logging\\E"
@@ -340,6 +364,10 @@
     "pattern":"\\Qio/ktor/util\\E"
   }, {
     "pattern":"\\Qio/ktor/utils/io/charsets\\E"
+  }, {
+    "pattern":"\\Qio/ktor/utils/io/core\\E"
+  }, {
+    "pattern":"\\Qio/ktor/utils/io/pool\\E"
   }, {
     "pattern":"\\Qio/ktor/utils/io\\E"
   }, {
@@ -631,6 +659,8 @@
   }, {
     "pattern":"\\Qkotlin/io\\E"
   }, {
+    "pattern":"\\Qkotlin/jdk7\\E"
+  }, {
     "pattern":"\\Qkotlin/jvm/functions\\E"
   }, {
     "pattern":"\\Qkotlin/jvm/internal/markers\\E"
@@ -771,6 +801,10 @@
   }, {
     "pattern":"\\Qkotlinx/coroutines/channels\\E"
   }, {
+    "pattern":"\\Qkotlinx/coroutines/flow/internal\\E"
+  }, {
+    "pattern":"\\Qkotlinx/coroutines/flow\\E"
+  }, {
     "pattern":"\\Qkotlinx/coroutines/internal\\E"
   }, {
     "pattern":"\\Qkotlinx/coroutines/intrinsics\\E"
@@ -784,6 +818,10 @@
     "pattern":"\\Qkotlinx/coroutines\\E"
   }, {
     "pattern":"\\Qkotlinx/io/files\\E"
+  }, {
+    "pattern":"\\Qkotlinx/io/internal\\E"
+  }, {
+    "pattern":"\\Qkotlinx/io/unsafe\\E"
   }, {
     "pattern":"\\Qkotlinx/io\\E"
   }, {
@@ -827,7 +865,15 @@
   }, {
     "pattern":"\\Qorg/fusesource/jansi/internal/native/Windows/x86_64/jansi.dll\\E"
   }, {
+    "pattern":"\\Qorg/fusesource/jansi/internal\\E"
+  }, {
+    "pattern":"\\Qorg/fusesource/jansi/io\\E"
+  }, {
     "pattern":"\\Qorg/fusesource/jansi/jansi.properties\\E"
+  }, {
+    "pattern":"\\Qorg/fusesource/jansi\\E"
+  }, {
+    "pattern":"\\Qorg/fusesource\\E"
   }, {
     "pattern":"\\Qorg/jcp/xml/dsig/internal/dom\\E"
   }, {
@@ -969,9 +1015,9 @@
   }, {
     "pattern":"\\Qsun/security\\E"
   }, {
-    "pattern":"\\Qsun/text/resources/cldr/ext\\E"
-  }, {
     "pattern":"\\Qsun/text/resources/cldr\\E"
+  }, {
+    "pattern":"\\Qsun/text/resources/ext\\E"
   }, {
     "pattern":"\\Qsun/text/resources\\E"
   }, {
@@ -1151,9 +1197,9 @@
   }, {
     "pattern":"java.base:\\Qsun/security/provider/certpath\\E"
   }, {
-    "pattern":"java.base:\\Qsun/text/resources/cldr/ext\\E"
-  }, {
     "pattern":"java.base:\\Qsun/text/resources/cldr\\E"
+  }, {
+    "pattern":"java.base:\\Qsun/text/resources/ext\\E"
   }, {
     "pattern":"java.base:\\Qsun/text/resources\\E"
   }, {

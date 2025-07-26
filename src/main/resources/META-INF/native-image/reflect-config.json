@@ -151,6 +151,10 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
+  "name":"com.sun.crypto.provider.HmacCore$HmacSHA384",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
   "name":"com.sun.management.GarbageCollectorMXBean",
   "queryAllPublicMethods":true
 },
@@ -276,7 +280,19 @@
   "fields":[{"name":"connections"}]
 },
 {
+  "name":"io.ktor.client.plugins.HttpRetryDelayContext"
+},
+{
+  "name":"io.ktor.client.plugins.HttpRetryModifyRequestContext"
+},
+{
+  "name":"io.ktor.client.plugins.HttpRetryShouldRetryContext"
+},
+{
   "name":"io.ktor.client.plugins.HttpSend"
+},
+{
+  "name":"io.ktor.client.plugins.HttpTimeoutConfig"
 },
 {
   "name":"io.ktor.client.plugins.api.ClientPluginImpl"
@@ -285,7 +301,16 @@
   "name":"io.ktor.client.plugins.api.ClientPluginInstance"
 },
 {
+  "name":"io.ktor.client.request.HttpRequest"
+},
+{
+  "name":"io.ktor.client.request.HttpRequestBuilder"
+},
+{
   "name":"io.ktor.client.request.ResponseAdapter"
+},
+{
+  "name":"io.ktor.client.statement.HttpResponse"
 },
 {
   "name":"io.ktor.http.ContentType"
@@ -295,9 +320,6 @@
 },
 {
   "name":"io.ktor.http.content.ChannelWriterContent"
-},
-{
-  "name":"io.ktor.http.content.TextContent"
 },
 {
   "name":"io.ktor.network.selector.InterestSuspensionsMap",
@@ -318,9 +340,6 @@
 {
   "name":"io.ktor.network.sockets.SocketBase",
   "fields":[{"name":"actualCloseFlag"}, {"name":"closeFlag"}, {"name":"readerJob"}, {"name":"writerJob"}]
-},
-{
-  "name":"io.ktor.server.application.ApplicationCall"
 },
 {
   "name":"io.ktor.server.application.PluginInstance"
@@ -428,6 +447,9 @@
 {
   "name":"java.lang.Thread",
   "fields":[{"name":"threadLocalRandomProbe"}]
+},
+{
+  "name":"java.lang.Throwable"
 },
 {
   "name":"java.lang.Void",
@@ -564,6 +586,10 @@
   "fields":[{"name":"value"}]
 },
 {
+  "name":"java.util.concurrent.atomic.AtomicMarkableReference",
+  "fields":[{"name":"pair"}]
+},
+{
   "name":"java.util.concurrent.atomic.AtomicReference",
   "fields":[{"name":"value"}]
 },
@@ -683,6 +709,15 @@
   "name":"kotlin.Boolean"
 },
 {
+  "name":"kotlin.Function2"
+},
+{
+  "name":"kotlin.Function3"
+},
+{
+  "name":"kotlin.Int"
+},
+{
   "name":"kotlin.Long"
 },
 {
@@ -693,9 +728,6 @@
 {
   "name":"kotlin.SafePublicationLazyImpl",
   "fields":[{"name":"_value"}]
-},
-{
-  "name":"kotlin.String"
 },
 {
   "name":"kotlin.Throwable"
@@ -713,7 +745,10 @@
   "name":"kotlin.collections.MutableMap"
 },
 {
-  "name":"kotlin.coroutines.jvm.internal.BaseContinuationImpl"
+  "name":"kotlin.jvm.functions.Function2"
+},
+{
+  "name":"kotlin.jvm.functions.Function3"
 },
 {
   "name":"kotlin.jvm.internal.DefaultConstructorMarker"
@@ -787,9 +822,6 @@
   "fields":[{"name":"cleanedAndPointers$volatile"}]
 },
 {
-  "name":"kotlinx.coroutines.internal.StackTraceRecoveryKt"
-},
-{
   "name":"kotlinx.coroutines.internal.ThreadSafeHeap",
   "fields":[{"name":"_size$volatile"}]
 },
@@ -819,6 +851,14 @@
 },
 {
   "name":"kotlinx.io.Source"
+},
+{
+  "name":"kotlinx.serialization.json.JsonObject",
+  "fields":[{"name":"Companion"}]
+},
+{
+  "name":"kotlinx.serialization.json.JsonObject$Companion",
+  "methods":[{"name":"serializer","parameterTypes":[] }]
 },
 {
   "name":"sun.management.ClassLoadingImpl",
