@@ -15,6 +15,7 @@ import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.serialization.json.*
 import org.slf4j.Logger
 import org.slf4j.event.Level
 
@@ -86,8 +87,11 @@ fun createOllamaServer(config: OllamaConfig): EmbeddedServer<CIOApplicationEngin
                         apiProvider.generateOStream(requestWithOriginalModelName),
                     )
                 }
+                post("/api/show") {
+                    call.receiveText()
+                    call.respond(mockOModelInfoResponse)
+                }
             }
-
         }
     }
 
@@ -106,5 +110,42 @@ private fun Application.configureServerCommon(callLogger: Logger) {
             call.respondText(text = cause.stackTraceToString(), status = HttpStatusCode.InternalServerError)
             callLogger.error("Error processing request.", cause)
         }
+    }
+}
+
+private val mockOModelInfoResponse = buildJsonObject {
+    put("modelfile", "Mock modelfile")
+    put("parameters", "Mock parameters")
+    put("template", "Mock template")
+    putJsonObject("details") {
+        put("parent_model", "")
+        put("format", "gguf")
+        put("family", "llama")
+        putJsonArray("families") { add("llama") }
+        put("parameter_size", "8.0B")
+        put("quantization_level", "Q4_0")
+    }
+    putJsonObject("model_info") {
+        put("general.architecture", "llama")
+        put("general.file_type", 2)
+        put("general.parameter_count", 8030261248L)
+        put("general.quantization_version", 2)
+        put("llama.attention.head_count", 32)
+        put("llama.attention.head_count_kv", 8)
+        put("llama.attention.layer_norm_rms_epsilon", 0.00001)
+        put("llama.block_count", 32)
+        put("llama.context_length", 8192)
+        put("llama.embedding_length", 4096)
+        put("llama.feed_forward_length", 14336)
+        put("llama.rope.dimension_count", 128)
+        put("llama.rope.freq_base", 500000)
+        put("llama.vocab_size", 128256)
+        put("tokenizer.ggml.bos_token_id", 128000)
+        put("tokenizer.ggml.eos_token_id", 128009)
+        putJsonArray("tokenizer.ggml.merges") {}
+        put("tokenizer.ggml.model", "gpt2")
+        put("tokenizer.ggml.pre", "llama-bpe")
+        putJsonArray("tokenizer.ggml.token_type") {}
+        putJsonArray("tokenizer.ggml.tokens") {}
     }
 }
