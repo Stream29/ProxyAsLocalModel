@@ -1,0 +1,13 @@
+# IDE files
+.run/
+
+# Gradle files and caches
+.gradle/
+build/
+
+# VCS
+.git
+.gitignore
+
+# Tests
+src/test/

@@ -57,3 +57,8 @@ graalvmNative {
     }
 }
 
+tasks.named<Jar>("jar") {
+    // only the fat “-all.jar” is needed, so we disable the plain jar
+    // this also helps to copy the jar file in docker without knowing its filename
+    enabled = false
+}
