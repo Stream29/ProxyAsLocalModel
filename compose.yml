@@ -1,0 +1,16 @@
+services:
+  proxy-as-local-model:
+    container_name: proxy-as-local-model
+    build:
+      context: .
+    volumes:
+      - './config.yml:/app/config.yml:ro'
+    ports:
+      - '127.0.0.1:11434:11434'
+      - '127.0.0.1:1234:1234'
+    healthcheck:
+      test: ["CMD", "sh", "-c", "nc -z localhost 11434 || nc -z localhost 1234 || exit 1"]
+      interval: 5s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
