@@ -26,8 +26,59 @@ Streaming chat completion API only.
 
 ## How to use
 
-This application is a proxy server, distributed as a fat runnable jar and a GraalVM native image (Windows x64).
+This application is a proxy server, and can be started in a few different ways depending on your workflow.
 
+### Workflows
+
+#### By source code
+
+```sh
+# if you prefer running auto-downloading the required gradle version seamlessly (recommended)
+./gradlew run
+```
+
+```sh
+# if you already have the required project gradle version installed
+gradle run
+```
+
+#### By fat runnable jar
+
+```sh
+# you can compile the app from the source code or download one of the github releases
+# if you compile it, the fat jar will be located at <repo-root>/build/libs
+java -jar ProxyAsLocalModel-0.0.7-all.jar 
+```
+
+#### By native GraalVM image
+
+```sh
+# you can get download the executable from one of the github releases
+# either launch it through a shell or just double click it from the windows explorer
+./proxy.exe
+```
+
+#### By docker compose
+
+```sh
+# if you want to run it on the background
+docker compose up -d --build
+
+# if you want to run it on the foreground
+docker compose up --build
+```
+
+With docker compose, you can bind the config file from your local filesystem so that the config auto-reload works
+Replace the ./config.yml for your config.yml path
+
+```yaml
+    volumes:
+      - './config.yml:/app/config.yml:ro'
+```
+
+You will need to create a placeholder config.yml to start the app, check the next section for reference
+
+### Start
 Run the application, and you will see a help message:
 
 ```
