@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.1.20"
+kotlin = "2.2.20"
 graalvm-buildtools = "0.10.6"
 gradleup-shadow = "8.3.5"
 ktor = "3.1.2"
