@@ -88,3 +88,15 @@ data class OpenRouterConfig(
     apiKey = apiKey,
     modelList = modelList
 )
+
+@Suppress("unused")
+@Serializable
+@SerialName("xAI")
+data class XAIConfig(
+    val apiKey: String,
+    val modelList: List<String>,
+) : ApiProvider by OpenAiConfig(
+    baseUrl = "https://api.x.ai/v1",
+    apiKey = apiKey,
+    modelList = modelList
+)

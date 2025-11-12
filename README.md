@@ -18,7 +18,7 @@ The development of this application gives me confidence in Kotlin/Ktor/kotlinx.s
 
 ## Currently supported
 
-Proxy from: OpenAI, Claude, DashScope(Alibaba Qwen), Gemini, Deepseek, Mistral, SiliconFlow.
+Proxy from: OpenAI, Claude, DashScope(Alibaba Qwen), Gemini, Deepseek, Mistral, SiliconFlow, xAI.
 
 Proxy as: LM Studio, Ollama.
 
@@ -168,4 +168,14 @@ apiProviders:
     apiKey: <your_api_key>
     modelList:
       - gemini-2.5-flash-preview-04-17
+  xAI:
+    type: xAI
+    apiKey: <your_api_key>
+    modelList:
+      - grok-code-fast-1
+      - grok-4-fast-reasoning
+      - grok-4-fast-non-reasoning
+      - grok-4-0709
+      - grok-3-mini
+      - grok-3
 ```
