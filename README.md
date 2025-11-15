@@ -101,7 +101,7 @@ When first generating the config file, it will be created with schema annotation
 ## Example config file
 
 ```yaml
-# $schema: https://github.com/Stream29/ProxyAsLocalModel/raw/master/config_v3.schema.json
+# $schema: https://github.com/Stream29/ProxyAsLocalModel/raw/master/config_v5.schema.json
 lmStudio:
   port: 1234 # This is default value
   enabled: true # This is default value
